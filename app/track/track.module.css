@@ -1,0 +1,538 @@
+.trackPage {
+  padding-top: 72px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* ── Header ── */
+.trackHeader {
+  background: var(--dark-2);
+  border-bottom: 1px solid var(--border-strong);
+  padding: 16px 24px;
+  flex-shrink: 0;
+}
+
+.trackHeaderInner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.trackTitle {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.liveIndicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #22C55E;
+  display: inline-block;
+  box-shadow: 0 0 0 0 rgba(34,197,94,0.4);
+  animation: pulse 1.5s ease-out infinite;
+}
+
+.trackSubtitle {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.trackHeaderStats {
+  display: flex;
+  gap: 24px;
+  margin-left: auto;
+}
+
+.headerStat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+.headerStatNum {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--text-primary);
+}
+
+.trackHeaderActions {
+  display: flex;
+  gap: 10px;
+}
+
+.locateBtn {
+  font-size: 13px;
+  padding: 10px 16px;
+}
+
+.locError {
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--warning);
+  padding: 0 0 0 4px;
+}
+
+/* ── Body ── */
+.trackBody {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* ── Sidebar ── */
+.sidebar {
+  width: 360px;
+  flex-shrink: 0;
+  background: var(--dark-2);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.filterTabs {
+  display: flex;
+  gap: 0;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.filterTabs::-webkit-scrollbar { display: none; }
+
+.filterTab {
+  padding: 7px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  white-space: nowrap;
+  transition: var(--transition);
+  font-family: 'Inter', sans-serif;
+}
+
+.filterTab:hover {
+  color: var(--text-primary);
+  background: rgba(255,255,255,0.06);
+}
+
+.filterTabActive {
+  background: var(--primary-glow);
+  color: var(--primary-light);
+  border: 1px solid rgba(0,87,255,0.3);
+}
+
+/* mechanic list */
+.mechanicList {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) transparent;
+}
+
+.emptyState {
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 14px;
+  padding: 40px 20px;
+}
+
+/* mechanic card */
+.mechanicCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.mechanicCard:hover {
+  border-color: rgba(0,87,255,0.3);
+  background: var(--surface-2);
+}
+
+.mechanicCardSelected {
+  border-color: var(--primary) !important;
+  background: var(--surface-2) !important;
+  box-shadow: 0 0 0 3px var(--primary-glow);
+}
+
+.cardTop {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.cardAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 13px;
+  color: white;
+  flex-shrink: 0;
+  border: 2px solid rgba(255,255,255,0.2);
+}
+
+.cardInfo {
+  flex: 1;
+  min-width: 0;
+}
+
+.cardName {
+  font-weight: 700;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cardSpecialty {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+.cardRating {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 3px;
+}
+
+.statusBadge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 100px;
+  border: 1px solid;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.cardMeta {
+  display: flex;
+  gap: 16px;
+}
+
+.cardMetaItem {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.cardMetaIcon {
+  font-size: 13px;
+}
+
+.cardActions {
+  display: flex;
+  gap: 6px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+}
+
+/* Legend */
+.legend {
+  padding: 16px;
+  border-top: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.legendTitle {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+}
+
+.legendDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  border: 2px solid rgba(255,255,255,0.3);
+}
+
+/* ── Map ── */
+.mapContainer {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Map overlay card */
+.mapOverlay {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 320px;
+  width: 100%;
+  animation: fadeUp 0.25s ease;
+}
+
+.overlayCard {
+  background: rgba(13, 21, 38, 0.96);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: var(--shadow-card);
+  position: relative;
+}
+
+.overlayClose {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.overlayClose:hover {
+  background: rgba(255,255,255,0.1);
+  color: var(--text-primary);
+}
+
+.overlayAvatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 16px;
+  color: white;
+  border: 2px solid rgba(255,255,255,0.2);
+  flex-shrink: 0;
+}
+
+.overlayName {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.overlaySpec {
+  font-size: 13px;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+.overlayStats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.overlayStat {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.overlayStat strong {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* En Route bar */
+.enRouteBar {
+  background: rgba(13,21,38,0.9);
+  border: 1px solid rgba(0,87,255,0.3);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: var(--text-secondary);
+  overflow: hidden;
+  position: relative;
+}
+
+.enRouteBarInner {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0,87,255,0.15) 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
+}
+
+/* Map locate button */
+.mapLocateBtn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 1000;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--dark-2);
+  border: 1px solid var(--border-strong);
+  color: var(--text-primary);
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-card);
+  transition: var(--transition);
+}
+
+.mapLocateBtn:hover {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+/* Leaflet overrides */
+:global(.leaflet-container) {
+  background: var(--dark-3);
+  font-family: 'Inter', sans-serif;
+}
+
+:global(.leaflet-control-zoom a) {
+  background: var(--surface) !important;
+  border-color: var(--border) !important;
+  color: var(--text-primary) !important;
+}
+
+:global(.leaflet-control-attribution) {
+  background: rgba(10,15,30,0.7) !important;
+  color: var(--text-muted) !important;
+  font-size: 10px !important;
+}
+
+:global(.leaflet-popup-content-wrapper) {
+  background: var(--surface) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 12px !important;
+  box-shadow: var(--shadow-card) !important;
+}
+
+:global(.leaflet-popup-tip) {
+  background: var(--surface) !important;
+}
+
+/* ── Mobile responsive ── */
+@media (max-width: 900px) {
+  .trackPage {
+    height: auto;
+    overflow: auto;
+  }
+
+  .trackBody {
+    flex-direction: column;
+    overflow: auto;
+    height: auto;
+  }
+
+  .sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    max-height: 400px;
+  }
+
+  .mapContainer {
+    height: 400px;
+    flex: none;
+  }
+
+  .trackHeaderStats {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .trackHeaderInner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .trackHeaderActions {
+    width: 100%;
+  }
+  .trackHeaderActions .btn {
+    flex: 1;
+    justify-content: center;
+  }
+}

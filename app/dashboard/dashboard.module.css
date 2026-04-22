@@ -1,0 +1,276 @@
+.dashboardContainer {
+  padding-top: 72px;
+  min-height: 100vh;
+  background: var(--dark-1);
+}
+
+.dashboardInner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  gap: 32px;
+  padding: 40px 24px;
+}
+
+.sidebar {
+  width: 280px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.userCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--primary-glow);
+  color: var(--primary-light);
+  border: 2px solid var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.userInfo h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.roleBadge {
+  font-size: 12px;
+  color: var(--text-secondary);
+  background: rgba(255,255,255,0.05);
+  padding: 4px 10px;
+  border-radius: 100px;
+  display: inline-block;
+  border: 1px solid var(--border);
+}
+
+.navLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.navLink {
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 12px 16px;
+  color: var(--text-secondary);
+  font-size: 15px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+}
+
+.navLink:hover {
+  background: rgba(255,255,255,0.05);
+  color: var(--text-primary);
+}
+
+.navLink.active {
+  background: var(--primary-glow);
+  color: var(--primary-light);
+  border-left: 3px solid var(--primary);
+}
+
+.mainContent {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.header h1 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.header p {
+  color: var(--text-muted);
+  font-size: 15px;
+}
+
+.gridCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 24px;
+}
+
+.card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 12px;
+}
+
+.vehicleInfo {
+  background: rgba(255,255,255,0.03);
+  padding: 16px;
+  border-radius: var(--radius-sm);
+  border: 1px dashed var(--border);
+}
+
+/* Mechanic specific */
+.alertPending {
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  color: #fcd34d;
+  padding: 20px;
+  border-radius: var(--radius-md);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.alertRejected {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #ef4444;
+  padding: 20px;
+  border-radius: var(--radius-md);
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.statusToggleBlock {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.statusHeader h3 {
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+.statusHeader p {
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.statusButtons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.statusBtn {
+  flex: 1;
+  min-width: 120px;
+  padding: 16px;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text-secondary);
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 14px;
+}
+
+.statusBtn:hover {
+  background: rgba(255,255,255,0.05);
+}
+
+.statusBtnActive {
+  background: var(--surface-2);
+  color: white;
+}
+
+.statusBtnActive.statusAvailable { border-color: #22C55E; box-shadow: 0 0 16px rgba(34,197,94,0.2); }
+.statusBtnActive.statusRoute { border-color: #0057FF; box-shadow: 0 0 16px rgba(0,87,255,0.2); }
+.statusBtnActive.statusBusy { border-color: #F59E0B; box-shadow: 0 0 16px rgba(245,158,11,0.2); }
+.statusBtnActive:not(.statusAvailable):not(.statusRoute):not(.statusBusy) { border-color: var(--text-muted); }
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.statBox {
+  background: var(--surface-2);
+  border-radius: var(--radius-sm);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.statValue {
+  font-size: 24px;
+  font-weight: 800;
+  font-family: 'Outfit', sans-serif;
+}
+
+.statLabel {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.profileList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.profileList li {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.profileList strong {
+  color: var(--text-primary);
+  display: inline-block;
+  width: 90px;
+}
+
+@media (max-width: 768px) {
+  .dashboardInner {
+    flex-direction: column;
+    padding: 24px 16px;
+  }
+  .sidebar { width: 100%; }
+}

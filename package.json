@@ -5,11 +5,20 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
+    "@prisma/client": "^6.4.1",
+    "africastalking": "^0.7.9",
+    "jose": "^6.2.2",
+    "leaflet": "^1.9.4",
     "next": "16.2.4",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "react-leaflet": "^5.0.0"
+  },
+  "devDependencies": {
+    "prisma": "^6.4.1"
   }
 }

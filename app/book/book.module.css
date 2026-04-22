@@ -1,0 +1,372 @@
+.bookPage {
+  padding-top: 72px;
+}
+
+.bookHero {
+  position: relative;
+  padding: 80px 24px 60px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.bookHeroBg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center top, rgba(0,87,255,0.14) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.bookHeroContent {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.bookTitle {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 900;
+}
+
+.bookSubtitle {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 560px;
+  line-height: 1.75;
+}
+
+/* Layout */
+.bookLayout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  grid-template-rows: auto 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+/* Progress */
+.progressBar {
+  grid-column: 1 / 2;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  position: relative;
+  padding: 0 8px 32px;
+}
+
+.progressLine {
+  position: absolute;
+  top: 22px;
+  left: 60px;
+  right: 60px;
+  height: 2px;
+  background: var(--border-strong);
+  z-index: 0;
+}
+
+.progressStep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.progressDot {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--surface-2);
+  border: 2px solid var(--border-strong);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--text-muted);
+  transition: var(--transition);
+}
+
+.progressActive .progressDot {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: white;
+  box-shadow: 0 0 0 6px var(--primary-glow);
+}
+
+.progressDone .progressDot {
+  background: var(--success);
+  border-color: var(--success);
+  color: white;
+}
+
+.progressLabel {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  transition: var(--transition);
+}
+
+.progressActive .progressLabel {
+  color: var(--text-primary);
+}
+
+/* Form */
+.bookForm {
+  grid-column: 1 / 2;
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.stepContent {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.stepTitle {
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+
+.stepSubtitle {
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin-top: -16px;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.stepActions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+}
+
+/* Review */
+.reviewGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.reviewSection {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 24px;
+}
+
+.reviewSection h4 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 16px;
+}
+
+.reviewItem {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+}
+
+.reviewItem:last-child {
+  border-bottom: none;
+}
+
+.reviewItem span:first-child {
+  color: var(--text-muted);
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.reviewItem span:last-child {
+  color: var(--text-primary);
+  font-weight: 600;
+  text-align: right;
+}
+
+.reviewNote {
+  background: var(--primary-glow);
+  border: 1px solid rgba(0,87,255,0.25);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.reviewNote strong {
+  color: var(--text-primary);
+}
+
+/* Sidebar */
+.bookSidebar {
+  grid-column: 2 / 3;
+  grid-row: 1 / 3;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: sticky;
+  top: 96px;
+}
+
+.sidebarCard {
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sidebarCard h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.sidebarCard p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.guaranteeList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.guaranteeList li {
+  font-size: 14px;
+  color: var(--text-secondary);
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.guaranteeList li:last-child {
+  border-bottom: none;
+}
+
+/* Success */
+.successContainer {
+  min-height: calc(100vh - 72px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px;
+}
+
+.successCard {
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-xl);
+  padding: 64px 56px;
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: var(--shadow-glow);
+}
+
+.successIcon {
+  font-size: 5rem;
+  margin-bottom: 24px;
+  animation: float 3s ease-in-out infinite;
+  display: block;
+}
+
+.successTitle {
+  font-size: 2.2rem;
+  font-weight: 900;
+  margin-bottom: 16px;
+}
+
+.successText {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+
+.successDetails {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+
+.successDetailItem {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+}
+
+.successDetailItem:last-child { border-bottom: none; }
+.successDetailItem span:first-child { color: var(--text-muted); }
+.successDetailItem span:last-child { font-weight: 600; }
+
+.successActions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 1024px) {
+  .bookLayout {
+    grid-template-columns: 1fr;
+  }
+  .progressBar { grid-column: 1; }
+  .bookForm { grid-column: 1; }
+  .bookSidebar {
+    grid-column: 1;
+    grid-row: auto;
+    position: static;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+  .formGrid > div[style*="gridColumn"] {
+    grid-column: auto !important;
+  }
+  .reviewGrid {
+    grid-template-columns: 1fr;
+  }
+  .bookSidebar {
+    grid-template-columns: 1fr;
+  }
+  .stepContent {
+    padding: 28px 20px;
+  }
+  .successCard {
+    padding: 40px 24px;
+  }
+}

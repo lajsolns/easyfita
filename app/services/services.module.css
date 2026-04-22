@@ -1,0 +1,245 @@
+.servicesPage {
+  padding-top: 72px;
+}
+
+.pageHero {
+  position: relative;
+  padding: 100px 24px 80px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.pageHeroBg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center top, rgba(0,87,255,0.14) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.pageHeroContent {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.pageTitle {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 900;
+  max-width: 720px;
+}
+
+.pageSubtitle {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  line-height: 1.75;
+}
+
+.heroActions {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Services Grid */
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.serviceCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.serviceTag {
+  position: absolute;
+  top: -1px;
+  right: 20px;
+  background: var(--primary);
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 0 0 8px 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.serviceIcon {
+  font-size: 2.5rem;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary-glow);
+  border: 1px solid rgba(0,87,255,0.2);
+  border-radius: var(--radius-md);
+}
+
+.serviceTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.serviceDesc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.featureList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.featureList li {
+  font-size: 13px;
+  color: var(--text-secondary);
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.featureList li:last-child {
+  border-bottom: none;
+}
+
+/* Pricing */
+.pricingSection {
+  background: var(--dark-3);
+}
+
+.pricingTable {
+  max-width: 680px;
+  margin: 0 auto;
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+
+.pricingHeader {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 16px 28px;
+  background: var(--primary);
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.pricingRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 18px 28px;
+  border-bottom: 1px solid var(--border);
+  transition: var(--transition);
+}
+
+.pricingRow:hover {
+  background: var(--surface-2);
+}
+
+.pricingRow:last-of-type {
+  border-bottom: none;
+}
+
+.pricingService {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.pricingAmount {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--primary-light);
+}
+
+.pricingFooter {
+  padding: 16px 28px;
+  background: var(--surface-2);
+  border-top: 1px solid var(--border);
+}
+
+.pricingFooter p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Coverage */
+.coverageCard {
+  background: linear-gradient(135deg, var(--surface) 0%, var(--surface-2) 100%);
+  border: 1px solid rgba(0,87,255,0.2);
+  border-radius: var(--radius-xl);
+  padding: 64px;
+  box-shadow: var(--shadow-glow);
+}
+
+.coverageContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.coverageTitle {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 800;
+  max-width: 560px;
+}
+
+.coverageText {
+  font-size: 15px;
+  color: var(--text-secondary);
+  max-width: 580px;
+  line-height: 1.7;
+}
+
+.coverageAreas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.areaTag {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  padding: 6px 14px;
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+@media (max-width: 1024px) {
+  .servicesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .servicesGrid {
+    grid-template-columns: 1fr;
+  }
+  .coverageCard {
+    padding: 36px 24px;
+  }
+}

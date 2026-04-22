@@ -1,0 +1,215 @@
+.aboutPage {
+  padding-top: 72px;
+}
+
+/* Hero */
+.pageHero {
+  position: relative;
+  padding: 100px 24px 80px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.pageHeroBg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center top, rgba(0,87,255,0.14) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+.pageHeroContent {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.pageTitle {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 900;
+  max-width: 720px;
+}
+
+.pageSubtitle {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  line-height: 1.75;
+}
+
+/* Mission */
+.missionGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.missionText {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.missionTitle {
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 800;
+  margin-top: 8px;
+}
+
+.missionText p {
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.missionActions {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.missionVisual {}
+
+.missionCard {
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  box-shadow: var(--shadow-glow);
+}
+
+.missionCardIcon {
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+}
+
+.missionCard h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.whyList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.whyList li {
+  font-size: 14px;
+  color: var(--text-secondary);
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  font-weight: 500;
+}
+
+.whyList li:last-child {
+  border-bottom: none;
+}
+
+/* Values */
+.valuesSection {
+  background: var(--dark-3);
+}
+
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.valueCard {
+  text-align: center;
+}
+
+.valueIcon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.valueTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.valueDesc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+/* Team */
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.teamCard {
+  text-align: center;
+}
+
+.teamAvatar {
+  font-size: 4rem;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.teamName {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.teamRole {
+  font-size: 13px;
+  color: var(--primary-light);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.teamDesc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+/* CTA */
+.aboutCta {
+  background: var(--dark-2);
+  border-top: 1px solid var(--border);
+}
+
+@media (max-width: 1024px) {
+  .valuesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .missionGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .teamGrid {
+    grid-template-columns: 1fr;
+  }
+  .valuesGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .missionActions {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .valuesGrid {
+    grid-template-columns: 1fr;
+  }
+}

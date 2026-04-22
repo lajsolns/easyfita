@@ -1,0 +1,124 @@
+// This is your Prisma schema file
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// ─── Enums ───────────────────────────────────────────────────────────────────
+
+enum Role {
+  CLIENT
+  MECHANIC
+}
+
+enum MechanicStatus {
+  AVAILABLE
+  BUSY
+  EN_ROUTE
+  OFFLINE
+}
+
+enum ApprovalStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+// ─── Models ──────────────────────────────────────────────────────────────────
+
+model User {
+  id        String   @id @default(cuid())
+  phone     String   @unique  // normalised: +233XXXXXXXXX
+  name      String
+  role      Role
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  clientProfile    ClientProfile?
+  mechanicProfile  MechanicProfile?
+  
+  clientBookings   Booking[] @relation("ClientBookings")
+  mechanicBookings Booking[] @relation("MechanicBookings")
+}
+
+// ─── Bookings ────────────────────────────────────────────────────────────────
+
+enum BookingStatus {
+  PENDING
+  ASSIGNED
+  EN_ROUTE
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+}
+
+model Booking {
+  id          String   @id @default(cuid())
+  
+  clientId    String?  
+  mechanicId  String?  
+
+  name        String
+  phone       String
+  email       String?
+  service     String
+  carMake     String
+  carModel    String
+  carYear     String?
+  timeSlot    String
+  location    String
+  notes       String?
+
+  status      BookingStatus @default(PENDING)
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  client      User? @relation("ClientBookings", fields: [clientId], references: [id], onDelete: SetNull)
+  mechanic    User? @relation("MechanicBookings", fields: [mechanicId], references: [id], onDelete: SetNull)
+}
+
+model Otp {
+  id        String   @id @default(cuid())
+  phone     String
+  code      String
+  expiresAt DateTime
+  used      Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@index([phone])
+}
+
+model ClientProfile {
+  id       String  @id @default(cuid())
+  userId   String  @unique
+  user     User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  carMake  String?
+  carModel String?
+  carYear  String?
+  location String?
+}
+
+model MechanicProfile {
+  id           String         @id @default(cuid())
+  userId       String         @unique
+  user         User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  specialty    String
+  experience   String
+  location     String
+  lat          Float?
+  lng          Float?
+  status       MechanicStatus @default(OFFLINE)
+  approval     ApprovalStatus @default(PENDING)
+  rating       Float          @default(0)
+  totalJobs    Int            @default(0)
+  bio          String?
+  certified    Boolean        @default(false)
+  rejectedNote String?
+  createdAt    DateTime       @default(now())
+}
