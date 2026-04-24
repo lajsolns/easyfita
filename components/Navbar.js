@@ -40,6 +40,7 @@ export default function Navbar() {
         <div className="navbar-inner">
           <Link href="/" className="navbar-logo">
             <img src="/Image/logo-white.jpeg" alt="EasyFITA Logo" style={{ height: '40px', width: 'auto', borderRadius: '4px' }} />
+            <span>Easy<span className="accent">FITA</span></span>
           </Link>
 
           <ul className="navbar-links">

@@ -30,8 +30,9 @@ export default function Footer() {
       <div className="footer-inner">
         <div className="footer-grid">
           <div className="footer-brand">
-            <Link href="/" className="navbar-logo" style={{ display: 'inline-block' }}>
+            <Link href="/" className="navbar-logo" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
               <img src="/Image/logo-white.jpeg" alt="EasyFITA Logo" style={{ height: '50px', width: 'auto', borderRadius: '4px' }} />
+              <span>Easy<span className="accent">FITA</span></span>
             </Link>
             <p>
               Your trusted auto repair &amp; roadside assistance partner in Accra, Ghana.
