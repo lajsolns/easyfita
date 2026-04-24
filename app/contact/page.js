@@ -27,9 +27,9 @@ const contactMethods = [
   {
     icon: '✉️',
     title: 'Email',
-    value: 'ezfita@gmail.com',
+    value: 'ez.fita@gmail.com',
     sub: 'We reply within 24 hours',
-    action: 'mailto:ezfita@gmail.com',
+    action: 'mailto:ez.fita@gmail.com',
     actionLabel: 'Send Email',
     id: 'contact-email-card',
   },

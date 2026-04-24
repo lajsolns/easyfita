@@ -14,7 +14,7 @@ export async function POST(request) {
 
     // Send email notification to admin
     const emailResult = await sendEmail({
-      to: 'ezfita@gmail.com',
+      to: process.env.ADMIN_EMAIL || 'ez.fita@gmail.com',
       subject: `New Contact Message: ${subject || 'General Inquiry'} - ${name}`,
       html: `
         <div style="font-family: sans-serif; padding: 24px; color: #333;">

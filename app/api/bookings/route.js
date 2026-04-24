@@ -55,7 +55,7 @@ export async function POST(request) {
     try {
       const { sendEmail } = await import('@/lib/email');
       await sendEmail({
-        to: 'ezfita@gmail.com',
+        to: process.env.ADMIN_EMAIL || 'ez.fita@gmail.com',
         subject: `New Booking: ${service} - ${name}`,
         html: `
           <div style="font-family: sans-serif; padding: 24px; color: #333;">

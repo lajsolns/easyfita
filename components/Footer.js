@@ -19,7 +19,7 @@ const footerLinks = {
   Contact: [
     { href: 'tel:0556920199', label: '📞 0556920199' },
     { href: 'https://wa.me/233557776271', label: '💬 WhatsApp Us' },
-    { href: 'mailto:ezfita@gmail.com', label: '✉️ ezfita@gmail.com' },
+    { href: 'mailto:ez.fita@gmail.com', label: '✉️ ez.fita@gmail.com' },
     { href: '#', label: '📍 Accra, Ghana' },
   ],
 };
@@ -41,7 +41,7 @@ export default function Footer() {
             <div className="social-links" style={{ marginTop: '24px' }}>
               <a href="https://wa.me/233557776271" target="_blank" rel="noopener noreferrer" className="social-link" title="WhatsApp" id="footer-whatsapp">💬</a>
               <a href="tel:0556920199" className="social-link" title="Call Us" id="footer-call">📞</a>
-              <a href="mailto:ezfita@gmail.com" className="social-link" title="Email Us" id="footer-email">✉️</a>
+              <a href="mailto:ez.fita@gmail.com" className="social-link" title="Email Us" id="footer-email">✉️</a>
             </div>
           </div>
 
