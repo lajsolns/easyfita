@@ -184,7 +184,7 @@
 
 .statsGrid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 0;
   text-align: center;
 }
@@ -464,11 +464,10 @@
 
 @media (max-width: 768px) {
   .statsGrid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
   }
-  .statItem:nth-child(2) { border-right: none; }
-  .statItem:nth-child(3) { border-right: 1px solid var(--border); border-top: 1px solid var(--border); }
-  .statItem:nth-child(4) { border-right: none; border-top: 1px solid var(--border); }
+  .statItem { border-right: none; border-bottom: 1px solid var(--border); }
+  .statItem:last-child { border-bottom: none; }
 
   .servicesGrid {
     grid-template-columns: 1fr;
