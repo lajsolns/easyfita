@@ -51,12 +51,21 @@
   mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
 }
 
-.heroContent {
+.heroWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
   position: relative;
   z-index: 1;
+}
+
+.heroContent {
+  flex: 1;
   max-width: 620px;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 24px;
 }
 
@@ -102,12 +111,8 @@
 
 /* ── Hero Visual ── */
 .heroVisual {
-  position: absolute;
-  right: max(24px, calc(50% - 560px));
-  top: 50%;
-  transform: translateY(-50%);
   width: 380px;
-  z-index: 1;
+  flex-shrink: 0;
   animation: float 6s ease-in-out infinite;
 }
 
@@ -442,11 +447,18 @@
 
 /* ── Responsive ── */
 @media (max-width: 1100px) {
-  .heroVisual {
-    display: none;
+  .heroWrapper {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
   }
   .heroContent {
     max-width: 100%;
+    align-items: center;
+  }
+  .heroVisual {
+    width: 100%;
+    max-width: 400px;
   }
 }
 

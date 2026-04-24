@@ -1,10 +1,10 @@
+'use client';
+
+import { useState } from 'react';
 import Link from 'next/link';
 import styles from './about.module.css';
 
-export const metadata = {
-  title: 'About Us – EasyFITA Auto Repair & Roadside Assistance',
-  description: 'Learn about EasyFITA — Ghana\'s trusted platform connecting car owners to professional mechanics for fast, affordable repairs in Accra.',
-};
+
 
 const values = [
   { icon: '⚡', title: 'Speed', desc: 'Average 30-minute response time. We know time is critical when your car fails you.' },
@@ -14,19 +14,42 @@ const values = [
 ];
 
 const team = [
-  { name: 'Kofi Acheampong', role: 'Founder & CEO', emoji: '👨🏾‍💼', desc: 'Passionate about making car care accessible for every Ghanaian.' },
-  { name: 'Ama Darko', role: 'Head of Operations', emoji: '👩🏾‍💼', desc: 'Ensures every job is dispatched and completed on time, every time.' },
-  { name: 'Emmanuel Boateng', role: 'Lead Mechanic', emoji: '👨🏾‍🔧', desc: '12+ years experience. Certified in diagnostics and engine repair.' },
+  { 
+    name: 'Jemima Senanu', 
+    role: 'Founder', 
+    image: '/Image/Jemima Senanu- Founder.jpeg', 
+    desc: 'Visionary leader dedicated to solving automotive logistics in Ghana through technology.' 
+  },
+  { 
+    name: 'Roland Kofi Koveh', 
+    role: 'Head of Operations', 
+    image: '/Image/Roland Kofi Koveh- Head of Operations.jpeg', 
+    desc: 'Dynamic coordinator ensuring flawless service delivery and client satisfaction across Accra.' 
+  },
+  { 
+    name: 'Marion Siba Napour', 
+    role: 'Chief Accountant', 
+    image: '/Image/Marion Siba Napour- Chief Accountant.jpeg', 
+    desc: 'Financial steward maintaining fiscal integrity and driving sustainable growth for the platform.' 
+  },
+  { 
+    name: 'Mark Nii Odoi Oddoye', 
+    role: 'Head of IT Operations', 
+    image: '/Image/Mark Nii Odoi Oddoye- Head of IT Operations.png', 
+    desc: 'Tech innovator managing our digital infrastructure to keep you connected to help 24/7.' 
+  },
 ];
 
 export default function AboutPage() {
+  const [selectedImage, setSelectedImage] = useState(null);
+
   return (
     <div className={styles.aboutPage}>
       {/* ── Page Hero ── */}
       <section className={styles.pageHero}>
         <div className={styles.pageHeroBg} />
         <div className={`container ${styles.pageHeroContent}`}>
-          <span className="badge">🏢 Our Story</span>
+          <div className="badge animate-fade-up">🏢 OUR STORY</div>
           <h1 className={styles.pageTitle}>Built for Every Car Owner in Ghana</h1>
           <p className={styles.pageSubtitle}>
             EasyFITA was founded with one mission: to make car maintenance stress-free, affordable, and accessible to everyone — anytime, anywhere in Accra.
@@ -39,7 +62,7 @@ export default function AboutPage() {
         <div className="container">
           <div className={styles.missionGrid}>
             <div className={styles.missionText}>
-              <span className="badge">🎯 Our Mission</span>
+              <div className="badge animate-fade-up">🎯 OUR MISSION</div>
               <h2 className={styles.missionTitle}>Connecting You to Trusted Mechanics Instantly</h2>
               <p>
                 We believe every car owner deserves access to reliable, professional mechanical services without the hassle of long waits, unknown pricing, or dodgy roadside strangers.
@@ -51,7 +74,7 @@ export default function AboutPage() {
                 <Link href="/book" className="btn btn-primary" id="about-book-btn">
                   Book a Mechanic
                 </Link>
-                <a href="tel:0260804767" className="btn btn-ghost" id="about-call-btn">
+                <a href="tel:0556920199" className="btn btn-ghost" id="about-call-btn">
                   📞 Call Us
                 </a>
               </div>
@@ -62,7 +85,6 @@ export default function AboutPage() {
                 <div className={styles.missionCardIcon}>🏆</div>
                 <h3>Why EasyFITA?</h3>
                 <ul className={styles.whyList}>
-                  <li>✅ 500+ happy customers served</li>
                   <li>✅ 24/7 emergency availability</li>
                   <li>✅ Certified professional mechanics</li>
                   <li>✅ Mobile service — we come to you</li>
@@ -80,7 +102,7 @@ export default function AboutPage() {
       <section className={`section ${styles.valuesSection}`}>
         <div className="container">
           <div className="section-header">
-            <span className="badge">💡 Our Values</span>
+            <div className="badge animate-fade-up">💡 OUR VALUES</div>
             <h2>What We Stand For</h2>
             <p>Every decision at EasyFITA is guided by these core principles.</p>
           </div>
@@ -100,14 +122,16 @@ export default function AboutPage() {
       <section className="section">
         <div className="container">
           <div className="section-header">
-            <span className="badge">👥 Our Team</span>
+            <div className="badge animate-fade-up">👥 OUR TEAM</div>
             <h2>The People Behind EasyFITA</h2>
             <p>A passionate team committed to making your car care experience seamless.</p>
           </div>
           <div className={styles.teamGrid}>
             {team.map((member, i) => (
               <div className={`card ${styles.teamCard}`} key={i}>
-                <div className={styles.teamAvatar}>{member.emoji}</div>
+                <div className={styles.teamAvatar} onClick={() => setSelectedImage(member.image)} style={{ cursor: 'zoom-in' }}>
+                  <img src={member.image} alt={member.name} />
+                </div>
                 <h3 className={styles.teamName}>{member.name}</h3>
                 <div className={styles.teamRole}>{member.role}</div>
                 <p className={styles.teamDesc}>{member.desc}</p>
@@ -131,6 +155,15 @@ export default function AboutPage() {
           </Link>
         </div>
       </section>
+      {/* ── Image Modal ── */}
+      {selectedImage && (
+        <div className={styles.modalOverlay} onClick={() => setSelectedImage(null)}>
+          <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+            <button className={styles.modalClose} onClick={() => setSelectedImage(null)}>×</button>
+            <img src={selectedImage} alt="Full view" className={styles.modalImage} />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -286,8 +286,8 @@ export default function BookPage() {
               <div className={styles.sidebarCard}>
                 <h3>🚨 Need Emergency Help?</h3>
                 <p>Don't wait — call us directly for immediate roadside assistance.</p>
-                <a href="tel:0260804767" className="btn btn-accent" id="sidebar-call-btn" style={{ width: '100%' }}>
-                  📞 Call: 0260804767
+                <a href="tel:0556920199" className="btn btn-accent" id="sidebar-call-btn" style={{ width: '100%' }}>
+                  📞 Call: 0556920199
                 </a>
                 <a href="https://wa.me/233557776271" target="_blank" rel="noopener noreferrer" className="btn btn-ghost" id="sidebar-whatsapp-btn" style={{ width: '100%', marginTop: 8 }}>
                   💬 WhatsApp: 0557776271

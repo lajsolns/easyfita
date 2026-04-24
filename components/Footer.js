@@ -17,7 +17,7 @@ const footerLinks = {
     { href: '/services', label: 'Vehicle Diagnostics' },
   ],
   Contact: [
-    { href: 'tel:0260804767', label: '📞 0260804767' },
+    { href: 'tel:0556920199', label: '📞 0556920199' },
     { href: 'https://wa.me/233557776271', label: '💬 WhatsApp Us' },
     { href: 'mailto:ezfita@gmail.com', label: '✉️ ezfita@gmail.com' },
     { href: '#', label: '📍 Accra, Ghana' },
@@ -30,17 +30,16 @@ export default function Footer() {
       <div className="footer-inner">
         <div className="footer-grid">
           <div className="footer-brand">
-            <div className="navbar-logo" style={{ fontSize: '22px' }}>
-              <div className="logo-icon">🔧</div>
-              Easy<span className="accent" style={{ color: 'var(--primary-light)' }}>FITA</span>
-            </div>
+            <Link href="/" className="navbar-logo" style={{ display: 'inline-block' }}>
+              <img src="/Image/logo-white.jpeg" alt="EasyFITA Logo" style={{ height: '50px', width: 'auto', borderRadius: '4px' }} />
+            </Link>
             <p>
               Your trusted auto repair &amp; roadside assistance partner in Accra, Ghana.
               We come to you — fast, professional, and affordable.
             </p>
             <div className="social-links" style={{ marginTop: '24px' }}>
               <a href="https://wa.me/233557776271" target="_blank" rel="noopener noreferrer" className="social-link" title="WhatsApp" id="footer-whatsapp">💬</a>
-              <a href="tel:0260804767" className="social-link" title="Call Us" id="footer-call">📞</a>
+              <a href="tel:0556920199" className="social-link" title="Call Us" id="footer-call">📞</a>
               <a href="mailto:ezfita@gmail.com" className="social-link" title="Email Us" id="footer-email">✉️</a>
             </div>
           </div>

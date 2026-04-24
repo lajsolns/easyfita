@@ -13,6 +13,9 @@ export const metadata = {
     description: 'Book a trusted mechanic online. We come to you – anywhere in Accra, Ghana.',
     type: 'website',
   },
+  icons: {
+    icon: '/Image/logo-white.jpeg',
+  },
 };
 
 export default function RootLayout({ children }) {

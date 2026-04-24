@@ -39,8 +39,7 @@ export default function Navbar() {
       <nav className="navbar">
         <div className="navbar-inner">
           <Link href="/" className="navbar-logo">
-            <div className="logo-icon">🔧</div>
-            Easy<span className="accent">FITA</span>
+            <img src="/Image/logo-white.jpeg" alt="EasyFITA Logo" style={{ height: '40px', width: 'auto', borderRadius: '4px' }} />
           </Link>
 
           <ul className="navbar-links">
@@ -104,21 +103,21 @@ export default function Navbar() {
         <div style={{ marginTop: 'auto', display: 'flex', flexDirection: 'column', gap: '8px' }}>
           {user ? (
             <>
-               <Link href={user.isAdmin ? "/admin" : "/dashboard"} className="btn btn-primary" onClick={() => setMenuOpen(false)}>
-                 {user.isAdmin ? "Admin Panel" : "My Dashboard"}
-               </Link>
-               <button onClick={() => { handleLogout(); setMenuOpen(false); }} className="btn btn-ghost">
-                 Log Out
-               </button>
+              <Link href={user.isAdmin ? "/admin" : "/dashboard"} className="btn btn-primary" onClick={() => setMenuOpen(false)}>
+                {user.isAdmin ? "Admin Panel" : "My Dashboard"}
+              </Link>
+              <button onClick={() => { handleLogout(); setMenuOpen(false); }} className="btn btn-ghost">
+                Log Out
+              </button>
             </>
           ) : (
             <>
-               <Link href="/auth/login" className="btn btn-ghost" onClick={() => setMenuOpen(false)}>
-                 Log In
-               </Link>
-               <Link href="/book" className="btn btn-primary" id="mobile-book-btn" onClick={() => setMenuOpen(false)}>
-                 📅 Book a Mechanic Now
-               </Link>
+              <Link href="/auth/login" className="btn btn-ghost" onClick={() => setMenuOpen(false)}>
+                Log In
+              </Link>
+              <Link href="/book" className="btn btn-primary" id="mobile-book-btn" onClick={() => setMenuOpen(false)}>
+                📅 Book a Mechanic Now
+              </Link>
             </>
           )}
           <Link href="/contact" className="btn btn-accent" id="mobile-help-btn" onClick={() => setMenuOpen(false)}>

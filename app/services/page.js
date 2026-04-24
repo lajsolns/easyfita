@@ -67,7 +67,7 @@ export default function ServicesPage() {
       <section className={styles.pageHero}>
         <div className={styles.pageHeroBg} />
         <div className={`container ${styles.pageHeroContent}`}>
-          <span className="badge">⚙️ Our Services</span>
+          <div className="badge animate-fade-up">⚙️ OUR SERVICES</div>
           <h1 className={styles.pageTitle}>Full Auto Care, Wherever You Are</h1>
           <p className={styles.pageSubtitle}>
             From emergency breakdowns to scheduled maintenance — EasyFITA provides professional automotive services at your location across Accra, Ghana.
@@ -76,8 +76,8 @@ export default function ServicesPage() {
             <Link href="/book" className="btn btn-primary btn-lg" id="services-hero-book">
               📅 Book a Service
             </Link>
-            <a href="tel:0260804767" className="btn btn-ghost btn-lg" id="services-hero-call">
-              📞 Call: 0260804767
+            <a href="tel:0556920199" className="btn btn-ghost btn-lg" id="services-hero-call">
+              📞 Call: 0556920199
             </a>
           </div>
         </div>
@@ -87,7 +87,7 @@ export default function ServicesPage() {
       <section className="section">
         <div className="container">
           <div className="section-header">
-            <span className="badge">🔧 All Services</span>
+            <div className="badge animate-fade-up">🔧 ALL SERVICES</div>
             <h2>What We Offer</h2>
             <p>Professional, affordable, and mobile auto services across Accra.</p>
           </div>
@@ -119,7 +119,7 @@ export default function ServicesPage() {
       <section className={`section ${styles.pricingSection}`}>
         <div className="container">
           <div className="section-header">
-            <span className="badge">💰 Transparent Pricing</span>
+            <div className="badge animate-fade-up">💰 TRANSPARENT PRICING</div>
             <h2>Service Pricing</h2>
             <p>Upfront estimates with no hidden charges. Complex jobs are quoted before any work begins.</p>
           </div>
@@ -153,7 +153,7 @@ export default function ServicesPage() {
         <div className="container">
           <div className={styles.coverageCard}>
             <div className={styles.coverageContent}>
-              <span className="badge">📍 Service Area</span>
+              <div className="badge animate-fade-up">📍 SERVICE AREA</div>
               <h2 className={styles.coverageTitle}>We Cover All of Accra & Surroundings</h2>
               <p className={styles.coverageText}>
                 Our mobile mechanics operate across all major areas of Accra including Osu, Labone, East Legon, Airport Hills, Tema, Spintex, Adenta, Madina, Kaneshie, and more.

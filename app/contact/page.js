@@ -8,9 +8,9 @@ const contactMethods = [
   {
     icon: '📞',
     title: 'Call Us',
-    value: '0260804767',
+    value: '0556920199',
     sub: 'Mon–Sun, 6am–10pm',
-    action: 'tel:0260804767',
+    action: 'tel:0556920199',
     actionLabel: 'Call Now',
     id: 'contact-call-card',
   },
@@ -75,11 +75,36 @@ export default function ContactPage() {
   const [openFaq, setOpenFaq] = useState(null);
   const [formSent, setFormSent] = useState(false);
   const [form, setForm] = useState({ name: '', phone: '', subject: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState('');
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
-  const handleSubmit = (e) => {
+  
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setFormSent(true);
+    setIsSubmitting(true);
+    setError('');
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+
+      const data = await res.json();
+
+      if (res.ok && data.success) {
+        setFormSent(true);
+      } else {
+        setError(data.error || 'Failed to send message. Please try again.');
+      }
+    } catch (err) {
+      console.error('Submission error:', err);
+      setError('A network error occurred. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -88,7 +113,7 @@ export default function ContactPage() {
       <section className={styles.pageHero}>
         <div className={styles.pageHeroBg} />
         <div className={`container ${styles.pageHeroContent}`}>
-          <span className="badge">📬 Contact Us</span>
+          <div className="badge animate-fade-up">📬 CONTACT US</div>
           <h1 className={styles.pageTitle}>We're Ready to Help You</h1>
           <p className={styles.pageSubtitle}>
             Reach out via call, WhatsApp, or email. Our team is available 7 days a week to help with any automotive need.
@@ -122,7 +147,7 @@ export default function ContactPage() {
             {/* Contact Form */}
             <div>
               <div style={{ marginBottom: 32 }}>
-                <span className="badge">📝 Send a Message</span>
+                <div className="badge animate-fade-up">📝 SEND A MESSAGE</div>
                 <h2 className={styles.formTitle}>Get in Touch</h2>
                 <p className={styles.formSubtitle}>Send us a message and we'll get back to you within a few hours.</p>
               </div>
@@ -136,24 +161,29 @@ export default function ContactPage() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className={styles.contactForm} id="contact-form">
+                  {error && (
+                    <div style={{ padding: '12px', background: '#ffe4e4', border: '1px solid #ffbaba', color: '#d8000c', borderRadius: '8px', marginBottom: '20px', fontSize: '14px' }}>
+                      ⚠️ {error}
+                    </div>
+                  )}
                   <div className="form-group">
                     <label htmlFor="contact-name">Full Name *</label>
-                    <input id="contact-name" name="name" type="text" placeholder="Your name" value={form.name} onChange={handleChange} required />
+                    <input id="contact-name" name="name" type="text" placeholder="Your name" value={form.name} onChange={handleChange} required disabled={isSubmitting} />
                   </div>
                   <div className="form-group">
                     <label htmlFor="contact-phone">Phone Number *</label>
-                    <input id="contact-phone" name="phone" type="tel" placeholder="e.g. 0244567890" value={form.phone} onChange={handleChange} required />
+                    <input id="contact-phone" name="phone" type="tel" placeholder="e.g. 0244567890" value={form.phone} onChange={handleChange} required disabled={isSubmitting} />
                   </div>
                   <div className="form-group">
                     <label htmlFor="contact-subject">Subject</label>
-                    <input id="contact-subject" name="subject" type="text" placeholder="e.g. Enquiry about oil change" value={form.subject} onChange={handleChange} />
+                    <input id="contact-subject" name="subject" type="text" placeholder="e.g. Enquiry about oil change" value={form.subject} onChange={handleChange} disabled={isSubmitting} />
                   </div>
                   <div className="form-group">
                     <label htmlFor="contact-message">Message *</label>
-                    <textarea id="contact-message" name="message" placeholder="Tell us how we can help…" value={form.message} onChange={handleChange} required style={{ minHeight: 140 }} />
+                    <textarea id="contact-message" name="message" placeholder="Tell us how we can help…" value={form.message} onChange={handleChange} required style={{ minHeight: 140 }} disabled={isSubmitting} />
                   </div>
-                  <button type="submit" className="btn btn-primary btn-lg" id="contact-submit-btn" style={{ width: '100%' }}>
-                    Send Message
+                  <button type="submit" className="btn btn-primary btn-lg" id="contact-submit-btn" style={{ width: '100%' }} disabled={isSubmitting}>
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
                   </button>
                 </form>
               )}
@@ -190,7 +220,7 @@ export default function ContactPage() {
       <section className={`section ${styles.faqSection}`}>
         <div className="container">
           <div className="section-header">
-            <span className="badge">❓ FAQs</span>
+            <div className="badge animate-fade-up">❓ FAQS</div>
             <h2>Frequently Asked Questions</h2>
             <p>Everything you need to know about EasyFITA's services.</p>
           </div>
@@ -211,7 +241,7 @@ export default function ContactPage() {
           <div style={{ textAlign: 'center', marginTop: 48 }}>
             <p style={{ color: 'var(--text-secondary)', marginBottom: 20 }}>Still have questions?</p>
             <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap' }}>
-              <a href="tel:0260804767" className="btn btn-primary" id="faq-call-btn">📞 Call Us</a>
+              <a href="tel:0556920199" className="btn btn-primary" id="faq-call-btn">📞 Call Us</a>
               <a href="https://wa.me/233557776271" target="_blank" rel="noopener noreferrer" className="btn btn-ghost" id="faq-whatsapp-btn">💬 WhatsApp Us</a>
             </div>
           </div>

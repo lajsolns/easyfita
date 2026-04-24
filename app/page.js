@@ -11,7 +11,7 @@ const services = [
 ];
 
 const stats = [
-  { value: '500+', label: 'Happy Customers' },
+  // { value: '500+', label: 'Happy Customers' },
   { value: '24/7', label: 'Emergency Support' },
   { value: '30 min', label: 'Avg. Response Time' },
   { value: '100%', label: 'Certified Mechanics' },
@@ -55,74 +55,77 @@ export default function HomePage() {
           <div className={styles.heroGrid} />
         </div>
 
-        <div className={`container ${styles.heroContent}`}>
-          <div className={`badge animate-fade-up`}>🏆 #1 Trusted Auto Repair in Accra</div>
-          <h1 className={`${styles.heroTitle} animate-fade-up-delay`}>
-            Your Car Breaks Down.
-            <br />
-            <span className={styles.heroGradient}>We Show Up Fast.</span>
-          </h1>
-          <p className={`${styles.heroSubtitle} animate-fade-up-delay-2`}>
-            Book a certified mechanic online in minutes. We come to you — home, office, or roadside.
-            Fast, affordable, and reliable auto repair across Accra, Ghana.
-          </p>
+        <div className={`container ${styles.heroWrapper}`}>
+          <div className={styles.heroContent}>
+            <div className={`badge animate-fade-up`}>🏆 #1 Trusted Auto Repair in Accra</div>
+            <h1 className={`${styles.heroTitle} animate-fade-up-delay`}>
+              Tap,
+              <br />
+              <span className={styles.heroGradient}>Fix and </span>
+               Go
+            </h1>
+            <p className={`${styles.heroSubtitle} animate-fade-up-delay-2`}>
+              Book a certified mechanic online in minutes. We come to you — home, office, or roadside.
+              Fast, affordable, and reliable auto repair across Accra, Ghana.
+            </p>
 
-          <div className={`${styles.heroActions} animate-fade-up-delay-2`}>
-            <Link href="/book" className="btn btn-primary btn-lg" id="hero-book-btn">
-              📅 Book a Mechanic Now
-            </Link>
-            <Link href="/contact" className="btn btn-accent btn-lg" id="hero-help-btn">
-              🚨 Get Help Fast
-            </Link>
-          </div>
-          <Link href="/track" className="btn btn-outline" id="hero-track-btn" style={{ alignSelf: 'flex-start', marginTop: '-8px' }}>
-            🗺️ See Live Mechanic Map
-          </Link>
-
-          <div className={styles.heroTrustRow}>
-            <div className={styles.trustItem}>✅ No call-out fee</div>
-            <div className={styles.trustItem}>✅ 30-min response</div>
-            <div className={styles.trustItem}>✅ Pay after service</div>
-            <div className={styles.trustItem}>✅ Certified mechanics</div>
-          </div>
-        </div>
-
-        <div className={styles.heroVisual}>
-          <div className={styles.heroCard}>
-            <div className={styles.heroCardHeader}>
-              <span className={styles.heroCardDot} style={{ background: '#ff5f56' }} />
-              <span className={styles.heroCardDot} style={{ background: '#ffbd2e' }} />
-              <span className={styles.heroCardDot} style={{ background: '#27c93f' }} />
-              <span style={{ marginLeft: 'auto', fontSize: '12px', color: 'var(--text-muted)' }}>Live Dispatch</span>
+            <div className={`${styles.heroActions} animate-fade-up-delay-2`}>
+              <Link href="/book" className="btn btn-primary btn-lg" id="hero-book-btn">
+                📅 Book a Mechanic Now
+              </Link>
+              <Link href="/contact" className="btn btn-accent btn-lg" id="hero-help-btn">
+                🚨 Get Help Fast
+              </Link>
             </div>
-            <div className={styles.heroCardBody}>
-              <div className={styles.dispatchItem}>
-                <span className={styles.dispatchDot} style={{ background: 'var(--success)' }} />
-                <div>
-                  <div style={{ fontSize: '13px', fontWeight: 600 }}>Mechanic En Route</div>
-                  <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>ETA: 18 minutes</div>
-                </div>
-                <span style={{ marginLeft: 'auto', fontSize: '12px', color: 'var(--success)' }}>🟢 Active</span>
-              </div>
-              <div className={styles.dispatchItem}>
-                <span className={styles.dispatchDot} style={{ background: 'var(--primary)' }} />
-                <div>
-                  <div style={{ fontSize: '13px', fontWeight: 600 }}>Oil Change — Osu</div>
-                  <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>In Progress</div>
-                </div>
-                <span style={{ marginLeft: 'auto', fontSize: '12px', color: 'var(--primary-light)' }}>🔵 In Progress</span>
-              </div>
-              <div className={styles.dispatchItem}>
-                <span className={styles.dispatchDot} style={{ background: 'var(--warning)' }} />
-                <div>
-                  <div style={{ fontSize: '13px', fontWeight: 600 }}>Battery Jumpstart</div>
-                  <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>Dispatching...</div>
-                </div>
-                <span style={{ marginLeft: 'auto', fontSize: '12px', color: 'var(--warning)' }}>🟡 Pending</span>
-              </div>
+            <Link href="/track" className="btn btn-outline" id="hero-track-btn" style={{ alignSelf: 'flex-start', marginTop: '-8px' }}>
+              🗺️ See Live Mechanic Map
+            </Link>
+
+            <div className={styles.heroTrustRow}>
+              <div className={styles.trustItem}>✅ No call-out fee</div>
+              <div className={styles.trustItem}>✅ 30-min response</div>
+              <div className={styles.trustItem}>✅ Pay after service</div>
+              <div className={styles.trustItem}>✅ Certified mechanics</div>
             </div>
-            <div className={styles.heroCardFooter}>
-              <span>📍 Accra Metro • 3 active mechanics</span>
+          </div>
+
+          <div className={styles.heroVisual}>
+            <div className={styles.heroCard}>
+              <div className={styles.heroCardHeader}>
+                <span className={styles.heroCardDot} style={{ background: '#ff5f56' }} />
+                <span className={styles.heroCardDot} style={{ background: '#ffbd2e' }} />
+                <span className={styles.heroCardDot} style={{ background: '#27c93f' }} />
+                <span style={{ marginLeft: 'auto', fontSize: '12px', color: 'var(--text-muted)' }}>Live Dispatch</span>
+              </div>
+              <div className={styles.heroCardBody}>
+                <div className={styles.dispatchItem}>
+                  <span className={styles.dispatchDot} style={{ background: 'var(--success)' }} />
+                  <div>
+                    <div style={{ fontSize: '13px', fontWeight: 600 }}>Mechanic En Route</div>
+                    <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>ETA: 18 minutes</div>
+                  </div>
+                  <span style={{ marginLeft: 'auto', fontSize: '12px', color: 'var(--success)' }}>🟢 Active</span>
+                </div>
+                <div className={styles.dispatchItem}>
+                  <span className={styles.dispatchDot} style={{ background: 'var(--primary)' }} />
+                  <div>
+                    <div style={{ fontSize: '13px', fontWeight: 600 }}>Oil Change — Osu</div>
+                    <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>In Progress</div>
+                  </div>
+                  <span style={{ marginLeft: 'auto', fontSize: '12px', color: 'var(--primary-light)' }}>🔵 In Progress</span>
+                </div>
+                <div className={styles.dispatchItem}>
+                  <span className={styles.dispatchDot} style={{ background: 'var(--warning)' }} />
+                  <div>
+                    <div style={{ fontSize: '13px', fontWeight: 600 }}>Battery Jumpstart</div>
+                    <div style={{ fontSize: '11px', color: 'var(--text-muted)' }}>Dispatching...</div>
+                  </div>
+                  <span style={{ marginLeft: 'auto', fontSize: '12px', color: 'var(--warning)' }}>🟡 Pending</span>
+                </div>
+              </div>
+              <div className={styles.heroCardFooter}>
+                <span>📍 Accra Metro • 3 active mechanics</span>
+              </div>
             </div>
           </div>
         </div>
@@ -197,7 +200,7 @@ export default function HomePage() {
       </section>
 
       {/* ── Testimonials ── */}
-      <section className="section">
+      {/* <section className="section">
         <div className="container">
           <div className="section-header">
             <span className="badge">⭐ Testimonials</span>
@@ -224,7 +227,7 @@ export default function HomePage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* ── CTA Banner ── */}
       <section className={styles.ctaSection}>
